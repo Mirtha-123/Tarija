@@ -1,0 +1,23 @@
+services:
+  api:
+    container_name: api_tarija
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
+    links:
+      - mongogogo
+  mongogogo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - 27019:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: MUcus-0415
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - mongando2:/data/db
+volumes:
+  mongando2: {}
+
